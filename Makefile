@@ -6,7 +6,7 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 14:42:12 by dicosta-          #+#    #+#              #
-#    Updated: 2024/12/18 14:50:49 by dicosta-         ###   ########.fr        #
+#    Updated: 2024/12/19 19:14:05 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,17 @@ LIBFT_DIR = ./libft/
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
-	$(NAME): $(OBJ)
+$(NAME): $(OBJ)
+	make -C $(LIBFT_DIR)
 	ar rcs $(NAME) $(OBJ) $(LIBFT_DIR)libft.a
 
 clean:
 	rm -f $(OBJ)
-
+	make -C $(LIBFT_DIR) clean
+	
 fclean: clean
 	rm -f $(NAME) $(OBJ)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

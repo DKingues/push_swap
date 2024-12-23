@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   lists_managment.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 14:42:04 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/20 18:37:22 by dicosta-         ###   ########.fr       */
+/*   Created: 2024/12/20 18:31:11 by dicosta-          #+#    #+#             */
+/*   Updated: 2024/12/20 19:51:23 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
-
-typedef struct s_data
+t_stack	*ft_doublelist_new(t_data cont)
 {
-	long	nbr;
-	long	index;
-} t_data;
+	t_stack	*new;
+	
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->data = cont;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
 
-typedef struct s_stack
-{
-	t_data data;
-	struct s_stack *next;
-	struct s_stack *prev;
-} t_stack;
 
-#endif
