@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 19:24:17 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/20 18:44:45 by dicosta-         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:52:07 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,13 @@ t_stack	*ft_stringprocess(char **argv)
 	a = NULL;
 	i = 0;
 	tmp = ft_split(argv[1], ' ');
+	while(tmp[i])
 	{
-
 		t_data d;
-		d.index = 1;
-		d.nbr = 6;
+		d.index = i;
+		d.nbr = ft_atoi(tmp[i]);
 		ft_doublelink_new(d);
-		
 	}
-	// while (tmp[i])
-	// {
-	// 	j = ft_atoi(tmp[i]);
-	// 	a->nbr = j;
-	// 	a->index = i;
-	// 	if (a->index >= 1)
-	// 	{
-	// 		a->next = NULL;
-	// 		a->prev = a->;
-	// 	}
-	// 	a->next = NULL;
-	// 	a->prev = NULL;
-	// 	i++;
-	// }
 }
 
 t_stack *ft_process(int	argc, char **argv)
@@ -53,7 +38,7 @@ t_stack *ft_process(int	argc, char **argv)
 	
     i = 1;
     if (argc < 2)
-        return (0);
+        return (0); 
     else if (argc == 2)
 		a = ft_stringprocess(argv);
     return (0);

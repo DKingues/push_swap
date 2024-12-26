@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:41:56 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/19 19:24:49 by dicosta-         ###   ########.fr       */
+/*   Updated: 2024/12/26 17:46:31 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ int main(int argc, char **argv)
     if (argc < 2)
         return (0);
     else if (argc == 2)
+	{
+		
+	}
     return (0);
 }
