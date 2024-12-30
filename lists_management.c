@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lists_managment.c                                  :+:      :+:    :+:   */
+/*   lists_management.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:31:11 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/26 17:54:57 by dicosta-         ###   ########.fr       */
+/*   Updated: 2024/12/30 17:56:49 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ t_stack	*ft_doublelist_last(t_stack *lst)
 	return (temp);
 }
 
-void	ft_dbllstadd_back(t_stack **lst, t_stack *new)
+void	ft_dbllstadd_back(t_stack **lst, t_data content)
 {
 	t_stack	*temp;
-
+	t_stack *new;
+	
+	new = ft_doublelist_new(content);
 	if (lst == NULL)
 		return ;
 	if (*lst == NULL)
@@ -77,21 +79,21 @@ int	ft_doublelist_size(t_stack *lst)
 
 
 
-void	ft_lstclear(t_stack **lst, void (*del)(void *))
-{
-	t_stack	*temp;
-	t_stack	*aux;
+// void	ft_dbllstclear(t_stack **lst, void (*del)(void *))
+// {
+// 	t_stack	*temp;
+// 	t_stack	*aux;
 
-	if (lst == NULL || del == NULL)
-		return ;
-	temp = *lst;
-	while (temp != NULL)
-	{
-		aux = temp;
-		temp = temp->next;
-		del(aux->data.nbr);
-		del(aux->data.index);
-		free(aux);
-	}
-	*lst = NULL;
-}
+// 	if (lst == NULL || del == NULL)
+// 		return ;
+// 	temp = *lst;
+// 	while (temp != NULL)
+// 	{
+// 		aux = temp;
+// 		temp = temp->next;
+// 		del(aux->data.nbr);
+// 		del(aux->data.index);
+// 		free(aux);
+// 	}
+// 	*lst = NULL;
+// }

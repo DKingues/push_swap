@@ -6,7 +6,7 @@
 #    By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/18 14:42:12 by dicosta-          #+#    #+#              #
-#    Updated: 2024/12/19 19:14:05 by dicosta-         ###   ########.fr        #
+#    Updated: 2024/12/30 17:45:38 by dicosta-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CCFLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap.a
 
-SRC = push_swap.c
+SRC = push_swap.c lists_management.c transformer.c
 
 LIBFT_DIR = ./libft/
 
@@ -32,7 +32,7 @@ clean:
 	make -C $(LIBFT_DIR) clean
 	
 fclean: clean
-	rm -f $(NAME) $(OBJ)
+	rm -f $(NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
