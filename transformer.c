@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 19:24:17 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/30 17:57:56 by dicosta-         ###   ########.fr       */
+/*   Updated: 2025/01/03 16:41:04 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ t_stack *ft_process(int	argc, char **argv)
 		a = ft_stringprocess(argv);
 	else
 	{
-		while (argc)
+		while (i < argc)
 		{
 			t_data d;
 			d.nbr = ft_atoi(argv[i]);
 			d.index = i - 1;
 			a = ft_doublelist_new(d);
+			i++;
 		}
 	}
     return (a);

@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:42:04 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/30 17:51:49 by dicosta-         ###   ########.fr       */
+/*   Updated: 2025/01/03 17:31:11 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_stack *ft_process(int	argc, char **argv);
 // LIST MANAGEMENT
 
 t_stack	*ft_doublelist_new(t_data content);
-t_stack	*ft_doublelist_last(t_stack *lst);
-void	ft_dbllstadd_back(t_stack **lst, t_data content);
-void	ft_doublelistadd_front(t_stack **lst, t_stack *new);
-int		ft_doublelist_size(t_stack *lst);
-void	ft_dbllstclear(t_stack **lst, void (*del)(void *));
+t_stack	*ft_doublelist_last(t_stack *stack);
+void	ft_dblstackadd_back(t_stack **stack, t_data content);
+void	ft_doublelistadd_front(t_stack **stack, t_stack *new);
+int		ft_doublelist_size(t_stack *stack);
+void	ft_dblstackclear(t_stack **stack, void (*del)(void *));
 
 #endif

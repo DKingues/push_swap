@@ -6,7 +6,7 @@
 /*   By: dicosta- <dicosta-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 18:31:11 by dicosta-          #+#    #+#             */
-/*   Updated: 2024/12/30 17:56:49 by dicosta-         ###   ########.fr       */
+/*   Updated: 2025/01/03 17:41:26 by dicosta-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ t_stack	*ft_doublelist_new(t_data content)
 	new->prev = NULL;
 	return (new);
 }
-t_stack	*ft_doublelist_last(t_stack *lst)
+t_stack	*ft_doublelist_last(t_stack *stack)
 {
 	t_stack	*temp;
 
-	if (!lst)
+	if (!stack)
 		return (NULL);
-	temp = lst;
+	temp = stack;
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
@@ -38,55 +38,83 @@ t_stack	*ft_doublelist_last(t_stack *lst)
 	return (temp);
 }
 
-void	ft_dbllstadd_back(t_stack **lst, t_data content)
+void	ft_dbllstadd_back(t_stack **stack, t_data content)
 {
 	t_stack	*temp;
 	t_stack *new;
 	
 	new = ft_doublelist_new(content);
-	if (lst == NULL)
+	if (stack == NULL)
 		return ;
-	if (*lst == NULL)
-		*lst = new;
+	if (*stack == NULL)
+		*stack = new;
 	else
 	{
-		temp = ft_doublelist_last(*lst);
+		temp = ft_doublelist_last(*stack);
 		temp->next = new;
 		new->prev = temp;
 	}
 }
 
-void	ft_doublelistadd_front(t_stack **lst, t_stack *new)
+void	ft_doublelistadd_front(t_stack **stack, t_stack *new)
 {
-	if (lst == NULL || new == NULL)
+	if (stack == NULL || new == NULL)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new->next = *stack;
+	*stack = new;
 }
 
-int	ft_doublelist_size(t_stack *lst)
+int	ft_doublelist_size(t_stack *stack)
 {
 	size_t	i;
 
 	i = 0;
-	while (lst != NULL)
+	while (stack != NULL)
 	{
 		i++;
-		lst = lst->next;
+		stack = stack->next;
 	}
 	return (i);
+}
+t_stack	*ft_doublelist_first(t_stack *stack)
+{
+	t_stack	*temp;
+
+	if (!stack)
+		return (NULL);
+	temp = stack;
+	while (temp->prev != NULL)
+	{
+		temp = temp->prev;
+	}
+	return (temp);
+}
+
+t_stack *ft_doublelist_remove_front(t_stack *stack)
+{
+	t_stack *temp;
+
+	temp = ft_doublelist_first(stack);
+	if (!stack)
+		return (NULL);
+	if (temp->next)
+	{
+		temp = temp->next;
+		temp->next->prev = NULL;
+	}
+	
 }
 
 
 
-// void	ft_dbllstclear(t_stack **lst, void (*del)(void *))
+// void	ft_dbllstclear(t_stack **stack, void (*del)(void *))
 // {
 // 	t_stack	*temp;
 // 	t_stack	*aux;
 
-// 	if (lst == NULL || del == NULL)
+// 	if (stack == NULL || del == NULL)
 // 		return ;
-// 	temp = *lst;
+// 	temp = *stack;
 // 	while (temp != NULL)
 // 	{
 // 		aux = temp;
@@ -95,5 +123,5 @@ int	ft_doublelist_size(t_stack *lst)
 // 		del(aux->data.index);
 // 		free(aux);
 // 	}
-// 	*lst = NULL;
+// 	*stack = NULL;
 // }
